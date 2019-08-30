@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+#define BROJ 100
+#define MAX 30
+main()
+{ char rec[MAX+1], max[MAX+1];
+int i, n, broj=0, l, lmax=0;
+
+	/*Citanje dozvoljenog broja reci*/
+	do
+	{ printf("\nUnesite dozvoljen broj reci: ");
+	scanf("%d", &n);
+	}while(n<1 || n> BROJ);
+	
+/*Citanje znakova rec po rec*/
+for(i=0; i<n; i++)
+{ scanf("%s", rec);
+
+/*Registrovanje reci trazene duzine*/
+l = strlen(rec);
+if(l>=3 && l<=10)
+	{ broj++;
+	if(l>lmax)
+		{ lmax=l;
+		strcpy(max, rec);
+		}
+	}
+
+}
+
+/*Izvestaji o trazenim vrednostima*/
+printf("\nBroj reci trazene duzine: %d", broj);
+printf("\nNajduza od trazenih reci: %s\n", max);
+}
